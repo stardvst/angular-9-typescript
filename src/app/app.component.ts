@@ -5,6 +5,9 @@ import { ProductService } from './product.service';
   selector: 'app-root',
   template: `<h1>{{ title }}</h1>
     <pic-button></pic-button>
+    <div>
+      <rating></rating>
+    </div>
     <products></products>`,
   providers: [ProductService],
 })
