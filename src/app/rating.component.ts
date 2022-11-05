@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'rating',
@@ -13,9 +13,12 @@ import { Component } from '@angular/core';
     <ng-container *ngIf="rating < 5; else elseBlock5"><star (click)="onClick(5)"></star></ng-container>
     <ng-template #elseBlock5><starfill (click)="onClick(5)"></starfill></ng-template>
   `,
+  styles: [
+    'star { color: orange; }', 'starfill { color: orange; }'
+  ]
 })
 export class RatingComponent {
-  rating: number = 1;
+  @Input() rating: number = 1;
 
   onClick(ratingValue: number) {
     this.rating = ratingValue;

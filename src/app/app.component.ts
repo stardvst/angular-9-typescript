@@ -6,7 +6,7 @@ import { ProductService } from './product.service';
   template: `<h1>{{ title }}</h1>
     <pic-button></pic-button>
     <div>
-      <rating></rating>
+      <rating [rating]="4"></rating>
     </div>
     <products></products>`,
   providers: [ProductService],
