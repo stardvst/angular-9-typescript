@@ -1,21 +1,27 @@
-import { Component } from '@angular/core';
-import { ProductService } from './product.service';
+import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'products',
+  selector: 'product',
   template: `
-    <h2>Products</h2>
-    <ul>
-      <li *ngFor="let product of products">
-        {{ product }}
-      </li>
-    </ul>
+    <div class="media">
+      <img src="{{ data.imageUrl }}" class="mr-3" alt="image" />
+      <div class="media-body">
+        <h5 class="mt-0">{{ data.productName }}</h5>
+        {{ data.releaseDate }}
+        <rating [rating]="data.rating" [numOfReviews]="data.numOfReviews"></rating>
+        <br />
+        {{ data.description }}
+      </div>
+    </div>
   `,
+  styles: [
+    `
+      .media {
+        margin-bottom: 20px;
+      }
+    `,
+  ],
 })
-export class ProductsComponent {
-  products: string[];
-
-  constructor(productService: ProductService) {
-    this.products = productService.getProducts();
-  }
+export class ProductComponent {
+  @Input() data: any;
 }

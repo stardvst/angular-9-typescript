@@ -12,13 +12,13 @@ import { Component, Input } from '@angular/core';
     <ng-template #elseBlock4><starfill (click)="onClick(4)"></starfill></ng-template>
     <ng-container *ngIf="rating < 5; else elseBlock5"><star (click)="onClick(5)"></star></ng-container>
     <ng-template #elseBlock5><starfill (click)="onClick(5)"></starfill></ng-template>
+    {{ numOfReviews }}
   `,
-  styles: [
-    'star { color: orange; }', 'starfill { color: orange; }'
-  ]
+  styles: ['star { color: orange; }', 'starfill { color: orange; }'],
 })
 export class RatingComponent {
   @Input() rating: number = 1;
+  @Input() numOfReviews: number = 0;
 
   onClick(ratingValue: number) {
     this.rating = ratingValue;
