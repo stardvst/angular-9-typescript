@@ -8,6 +8,7 @@ import { ProductsComponent } from './products.component';
 import { RatingComponent } from './rating.component';
 import { StarComponent } from './star.component';
 import { StarfillComponent } from './starfill.component';
+import { TruncatePipe } from './truncate.pipe';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { StarfillComponent } from './starfill.component';
     StarComponent,
     StarfillComponent,
     RatingComponent,
+    TruncatePipe,
   ],
   imports: [BrowserModule],
   providers: [],

@@ -7,7 +7,7 @@ import { Component, Input } from '@angular/core';
       <img src="{{ data.imageUrl }}" class="mr-3" alt="image" style="float: left;" />
       <div class="media-body">
         <h5 class="mt-0">{{ data.productName }}</h5>
-        <p>{{ data.releasedDate }}</p>
+        <p>{{ data.releasedDate | date: 'MM/dd/yy' }}</p>
         <rating [rating]="data.rating" [numOfReviews]="data.numOfReviews"></rating>
         <div [ngSwitch]="data.rating">
           <div *ngSwitchCase="1">Poor</div>
@@ -18,7 +18,7 @@ import { Component, Input } from '@angular/core';
           <div *ngSwitchDefault>Not Rated</div>
         </div>
         <br />
-        {{ data.description }}
+        {{ data.description | truncate: 20 }}
       </div>
     </div>
   `,
