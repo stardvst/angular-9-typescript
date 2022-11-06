@@ -5,9 +5,12 @@ import { ProductService } from './product.service';
   selector: 'products',
   template: `
     <h2>Products</h2>
-    <div *ngFor="let product of products">
-      <product [data]="product"></product>
+    <div *ngIf="products.length > 0; else noproducts">
+      <div *ngFor="let product of products">
+        <product [data]="product"></product>
+      </div>
     </div>
+    <ng-template #noproducts> No products to display.</ng-template>
   `,
   styles: [
     `
