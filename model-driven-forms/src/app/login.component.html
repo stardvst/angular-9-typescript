@@ -9,8 +9,13 @@
   <div class="form-group">
     <label for="password">Password</label>
     <input type="password" id="password" class="form-control" formControlName="password">
-    <div *ngIf="form.controls['password'].touched && !form.controls['password'].valid" class="alert alert-danger">
-      Password is required
+    <div *ngIf="form.controls['password'].touched && form.controls['password'].errors" class="alert alert-danger">
+      <div *ngIf="form.controls['password'].errors['required']">
+        Password is required
+      </div>
+      <div *ngIf="form.controls['password'].errors['cannotContainSpace']">
+        Password cannot contain space
+      </div>
     </div>
   </div>
   <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Login</button>
