@@ -9,11 +9,15 @@ export interface GithubUser {
   score: string;
 }
 
+export interface GithubUsers {
+  items: GithubUser[];
+}
+
 @Injectable()
 export class GithubService {
-  constructor(private _githubService: HttpClient) {}
+  constructor(private _http: HttpClient) {}
 
-  getGithubData(_searchTerm: string): Observable<GithubUser> {
-    return this._githubService.get<GithubUser>('http://api.github.com/search/users?q=' + _searchTerm);
+  getGithubData(_searchTerm: string): Observable<GithubUsers> {
+    return this._http.get<GithubUsers>('http://api.github.com/search/users?q=' + _searchTerm);
   }
 }
