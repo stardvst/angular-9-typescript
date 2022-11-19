@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { debounceTime, distinctUntilChanged, filter } from 'rxjs';
 
@@ -12,7 +12,7 @@ import { GithubService, GithubUser } from './github.service';
     <div *ngIf="isLoading"><i class="fa fa-spin fa-spinner fa-3x"></i></div>
     <div *ngFor="let user of users" class="media">
       <div class="media">
-        <a href="{{ user.html_url }}" style="float: left;">
+        <a [routerLink]="['user', user.login, user.score]" href="{{ user.html_url }}" style="float: left;">
           <img src="{{ user.avatar_url }}" alt="{{ user.login }}" class="mr-4" width="64" height="64" />
         </a>
         <div class="media-body">
@@ -24,7 +24,7 @@ import { GithubService, GithubUser } from './github.service';
   `,
   providers: [GithubService],
 })
-export class GithubComponent {
+export class GithubComponent implements OnInit {
   title = 'github-search';
 
   searchControl = new FormControl();

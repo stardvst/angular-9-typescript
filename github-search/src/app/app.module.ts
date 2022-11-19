@@ -9,10 +9,11 @@ import { GithubComponent } from './github.component';
 import { HomeComponent } from './home.component';
 import { NotFoundComponent } from './notfound.component';
 import { InstaComponent } from './insta.component';
+import { GithubUserComponent } from './githubuser.component';
 
 @NgModule({
   declarations: [
-    AppComponent, HomeComponent, NotFoundComponent, GithubComponent, InstaComponent
+    AppComponent, HomeComponent, NotFoundComponent, GithubComponent, InstaComponent, GithubUserComponent
   ],
   imports: [
     BrowserModule, ReactiveFormsModule, HttpClientModule, routing
