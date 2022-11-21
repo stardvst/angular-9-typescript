@@ -13,6 +13,7 @@ import { GithubUserComponent } from './githubuser.component';
 import { LoginService } from './login.service';
 import { AuthGuard } from './auth-guard.service';
 import { LoginComponent } from './login.component';
+import { PreventUnsavedChangesGuard } from './prevent-unsaved-changes-guard.service';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,7 @@ import { LoginComponent } from './login.component';
   imports: [
     BrowserModule, ReactiveFormsModule, HttpClientModule, routing
   ],
-  providers: [LoginService, AuthGuard],
+  providers: [LoginService, AuthGuard, PreventUnsavedChangesGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
