@@ -5,10 +5,14 @@ import { NotFoundComponent } from './notfound.component';
 import { InstaComponent } from './insta.component';
 import { GithubUserComponent } from './githubuser.component';
 
+import { AuthGuard } from './auth-guard.service';
+import { LoginComponent } from './login.component';
+
 export const routing = RouterModule.forRoot([
   { path: '', component: HomeComponent },
-  { path: 'github', component: GithubComponent },
-  { path: 'github/user/:login/:score', component: GithubUserComponent },
-  { path: 'insta', component: InstaComponent },
+  { path: 'github', component: GithubComponent, canActivate: [AuthGuard] },
+  { path: 'github/user/:login/:score', component: GithubUserComponent, canActivate: [AuthGuard] },
+  { path: 'insta', component: InstaComponent, canActivate: [AuthGuard] },
+  { path: 'login', component: LoginComponent },
   { path: '**', component: NotFoundComponent },
 ]);
