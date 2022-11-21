@@ -6,7 +6,6 @@ import { Component } from '@angular/core';
     <ul>
       <li><a routerLink="">Home</a></li>
       <li><a routerLink="github">Github</a></li>
-      <li><a routerLink="insta">Insta</a></li>
     </ul>
     <router-outlet></router-outlet>
   `,
