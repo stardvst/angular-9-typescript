@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "github-search-5a74f"
+  },
+  "targets": {
+    "github-search-5a74f": {
+      "hosting": {
+        "angular-firebase": [
+          "github-search-5a74f"
+        ]
+      }
+    }
+  }
+}
