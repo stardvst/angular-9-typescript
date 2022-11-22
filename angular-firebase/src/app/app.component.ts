@@ -1,12 +1,7 @@
 import { Component } from '@angular/core';
-import { Firestore } from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-root',
-  template: '<h1>Hello World</h1>',
+  template: '<router-outlet></router-outlet>',
 })
-export class AppComponent {
-  constructor(firestore: Firestore) {
-    console.log(firestore);
-  }
-}
+export class AppComponent {}
