@@ -9,15 +9,18 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { environment } from 'src/environments/environment';
 import { UserComponent } from './user.component';
 import { routing } from './app.routing';
+import { UserFormComponent } from './user-form.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [AppComponent, UserComponent],
+  declarations: [AppComponent, UserComponent, UserFormComponent],
   imports: [
     BrowserModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAnalyticsModule,
     AngularFirestoreModule,
-    routing
+    ReactiveFormsModule,
+    routing,
   ],
   providers: [],
   bootstrap: [AppComponent],
