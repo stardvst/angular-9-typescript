@@ -17,5 +17,5 @@
       </div>
     </div>
   </div>
-  <button [disabled]="!form.valid" class="btn btn-primary" type="submit">Add User</button>
+  <button [disabled]="!form.valid" class="btn btn-primary" type="submit">{{id ? "Update User" : "Add User"}}</button>
 </form>

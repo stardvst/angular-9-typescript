@@ -5,4 +5,5 @@ import { UserComponent } from './user.component';
 export const routing = RouterModule.forRoot([
   { path: '', component: UserComponent },
   { path: 'add', component: UserFormComponent },
+  { path: 'add/:id', component: UserFormComponent },
 ]);
