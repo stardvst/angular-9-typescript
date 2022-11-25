@@ -35,6 +35,20 @@ export class LoginService {
     return null;
   }
 
+  signup(username: string, password: string) {
+    this._afAuth
+      .createUserWithEmailAndPassword(username, password)
+      .then(authState => {
+        console.log('Signed up:', authState);
+        this.loggedIn.next(true);
+        this._router.navigate(['/']);
+      })
+      .catch(err => {
+        const errMsg = err.message;
+        this._router.navigate([`signup/${errMsg.substring('Firebase: '.length, errMsg.indexOf('(') - 1)}`]);
+      });
+  }
+
   logout() {
     this.loggedIn.next(false);
     this._afAuth.signOut();
