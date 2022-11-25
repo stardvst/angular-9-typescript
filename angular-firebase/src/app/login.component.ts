@@ -1,21 +1,33 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, /* FormControl, */ Validators, Form } from '@angular/forms';
 import { LoginService } from './login.service';
 import { PasswordValidator } from './passwordValidator';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'login',
   templateUrl: 'login.component.html',
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
   form: FormGroup;
   isSubmitted: boolean = false;
+  invalidLoginMessage: string = '';
 
-  constructor(fb: FormBuilder, private _loginService: LoginService, private _router: Router) {
+  constructor(
+    fb: FormBuilder,
+    private _loginService: LoginService,
+    private _router: Router,
+    private _route: ActivatedRoute
+  ) {
     this.form = fb.group({
       username: ['', Validators.required],
       password: ['', Validators.compose([Validators.required, PasswordValidator.cannotContainSpace])],
+    });
+  }
+
+  ngOnInit() {
+    this._route.params.subscribe(params => {
+      this.invalidLoginMessage = params['invalidLoginMessage'];
     });
   }
 

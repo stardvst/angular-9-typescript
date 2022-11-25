@@ -11,18 +11,22 @@ import { UserComponent } from './user.component';
 import { routing } from './app.routing';
 import { UserFormComponent } from './user-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { LoginComponent } from './login.component';
+import { LoginService } from './login.service';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 
 @NgModule({
-  declarations: [AppComponent, UserComponent, UserFormComponent],
+  declarations: [AppComponent, UserComponent, UserFormComponent, LoginComponent],
   imports: [
     BrowserModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAnalyticsModule,
     AngularFirestoreModule,
     ReactiveFormsModule,
+    AngularFireAuthModule,
     routing,
   ],
-  providers: [],
+  providers: [LoginService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
