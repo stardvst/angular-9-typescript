@@ -54,4 +54,16 @@ export class LoginService {
     this._afAuth.signOut();
     this._router.navigate(['/login']);
   }
+
+  getCurrentUser() {
+    return this._afAuth.authState.subscribe(authState => {
+      if (authState) {
+        this.loggedIn.next(true);
+        this._router.navigate(['/']);
+        console.log(`logged in as ${authState.uid}`);
+      } else {
+        this._router.navigate(['login']);
+      }
+    });
+  }
 }
